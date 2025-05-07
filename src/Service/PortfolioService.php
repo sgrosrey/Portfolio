@@ -7,6 +7,11 @@ namespace App\Service;
  */
 class PortfolioService
 {
+    public function calculateAge(\DateTimeInterface $birthDate): int
+{
+    $today = new \DateTime();
+    return $today->diff($birthDate)->y;
+}
     /**
      * Retourne toutes les données du portfolio pour la page d'accueil.
      */
@@ -26,7 +31,7 @@ class PortfolioService
      */
     public function getSkills(): array
     {
-        return [
+        return [   
             'Languages' => [
                 'icon'        => 'fa-solid fa-code',
                 'color_bg'    => 'blue-500/40',
@@ -40,8 +45,6 @@ class PortfolioService
                     [ 'icon' => 'fa-brands fa-php',        'name' => 'PHP',        'display' => true ],
                     [ 'icon' => 'fa-brands fa-python',     'name' => 'Python',     'display' => true ],
                     [ 'icon' => 'fa-brands fa-java',       'name' => 'Java',       'display' => true ],
-                    [ 'icon' => 'fa-brands fa-kotlin',     'name' => 'Kotlin',     'display' => false ],
-                    [ 'icon' => 'fa-brands fa-swift',      'name' => 'Swift',      'display' => false ],
                 ]
             ],
             'Frameworks' => [
@@ -52,9 +55,7 @@ class PortfolioService
                 'items'       => [
                     [ 'icon' => 'fa-brands fa-symfony',             'name' => 'Symfony',      'display' => true ],
                     [ 'image' => 'skills/flask.png',                'name' => 'Flask',        'display' => true ],
-                    [ 'image' => 'skills/next-js.svg',              'name' => 'Next.js',      'display' => true ],
                     [ 'icon' => 'fa-brands fa-bootstrap',           'name' => 'Bootstrap',    'display' => true ],
-                    [ 'image' => 'skills/tailwind.png',             'name' => 'Tailwind CSS', 'display' => true ],
                 ]
             ],
             'Backend' => [
@@ -66,7 +67,6 @@ class PortfolioService
                     [ 'icon' => 'fa-brands fa-node',        'name' => 'Node.js',    'display' => true ],
                     [ 'icon' => 'fa-solid fa-database',     'name' => 'MySQL',      'display' => true ],
                     [ 'icon' => 'fa-solid fa-database',     'name' => 'SQLite',     'display' => true ],
-                    [ 'icon' => 'fa-solid fa-database',     'name' => 'PostgreSQL', 'display' => false ],
                     [ 'icon' => 'fa-solid fa-server',       'name' => 'REST APIs',  'display' => true ],
                 ]
             ],
@@ -111,67 +111,38 @@ class PortfolioService
     {
         return [
             [
-                'title'        => 'experiences.sogea.title',
-                'company'      => 'SOGEA Environnement (Groupe VINCI)',
-                'location'     => 'experiences.sogea.location',
-                'period'       => 'experiences.sogea.period',
-                'logo'         => 'companies/sogea.png',
+                'title'        => 'Développeur Full-Stack',
+                'company'      => 'Actimage',
+                'location'     => 'Strasbourg, France',
+                'period'       => '2019 - 2022',
+                'logo'         => 'companies/actimage.png',
                 'description'  => [
-                    'experiences.sogea.description.1',
-                    'experiences.sogea.description.2',
-                    'experiences.sogea.description.3'
+                    'Développement d’applications gouvernementales majeures, telles que prix-carburants.gouv.fr et vigicrues.gouv.fr.',
+                    'Gestion complète des projets, de la conception au déploiement.',
+                    'Optimisation des performances et sécurisation des données.',
+                    'Collaboration avec Actimage, acteur reconnu en IT dans le Grand Est.',
                 ],
                 'technologies' => $this->mapTechs([
-                    'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Node.js', 'SQLite', 'PostgreSQL', 'REST APIs', 'Git'
+                    'Symfony', 'PHP', 'TypeScript', 'Node.js', 'MySQL', 'SQLite', 'REST APIs', 'Git', 'Agile', 'Postman'
                 ])
             ],
             [
-                'title'        => 'experiences.klimber_kids.title',
-                'company'      => 'Klimber-Kids',
-                'location'     => 'experiences.klimber_kids.location',
-                'period'       => 'experiences.klimber_kids.period',
-                'logo'         => 'companies/klimber-kids.svg',
+                'title'        => 'Développeur Full-Stack Freelance',
+                'company'      => 'Indépendant (WIWEB)',
+                'location'     => 'Strasbourg, France',
+                'period'       => '2022 - Présent',
+                'logo'         => 'companies/freelance.png', 
                 'description'  => [
-                    'experiences.klimber_kids.description.1',
-                    'experiences.klimber_kids.description.2',
-                    'experiences.klimber_kids.description.3'
+                    'Gestion complète de projets web et mobiles pour divers clients, avec un focus sur Symfony et PHP.',
+                    'Conception et développement d’applications sur mesure, orientées performance et sécurité.',
+                    'Accompagnement client de la phase de conception jusqu’au déploiement et maintenance.',
                 ],
                 'technologies' => $this->mapTechs([
-                    'PHP', 'HTML', 'CSS', 'JavaScript', 'Symfony', 'Bootstrap', 'MySQL', 'REST APIs', 'Git'
+                    'Symfony', 'PHP', 'TypeScript', 'Node.js', 'MySQL', 'SQLite', 'REST APIs', 'Git', 'Agile', 'Postman'
                 ])
             ],
-            [
-                'title'        => 'experiences.cs_lane.title',
-                'company'      => 'CS-Lane',
-                'location'     => 'experiences.cs_lane.location',
-                'period'       => 'experiences.cs_lane.period',
-                'logo'         => 'companies/cs-lane.svg',
-                'description'  => [
-                    'experiences.cs_lane.description.1',
-                    'experiences.cs_lane.description.2',
-                    'experiences.cs_lane.description.3'
-                ],
-                'technologies' => $this->mapTechs([
-                    'PHP', 'HTML', 'CSS', 'JavaScript', 'Kotlin', 'Swift', 'Bootstrap', 'MySQL', 'REST APIs', 'Agile', 'Git', 'Postman'
-                ])
-            ],
-            [
-                'title'        => 'experiences.uimm.title',
-                'company'      => 'UIMM Eure Seine Estuaire',
-                'location'     => 'experiences.uimm.location',
-                'period'       => 'experiences.uimm.period',
-                'logo'         => 'companies/uimm.png',
-                'description'  => [
-                    'experiences.uimm.description.1',
-                    'experiences.uimm.description.2'
-                ],
-                'technologies' => $this->mapTechs([
-                    'Python', 'HTML', 'CSS', 'JavaScript', 'Flask', 'Bootstrap', 'REST APIs'
-                ])
-            ]
         ];
     }
-
     /**
      * Retourne la liste des formations.
      */
@@ -179,112 +150,124 @@ class PortfolioService
     {
         return [
             [
-                'degree'      => 'education.bts.degree',
-                'school'      => 'Lycée Gustave Flaubert',
-                'location'    => 'education.bts.location',
-                'period'      => 'education.bts.period',
-                'logo'        => 'schools/gustave-flaubert.png',
+                'degree'      => 'Développeur Web et Web Mobile',
+                'school'      => 'Wild Code School Strasbourg',
+                'location'    => 'Strasbourg, France',
+                'period'      => '2018',
+                'logo'        => 'schools/wild-code-school.png',
                 'description' => [
-                    'education.bts.description.1',
+                    'Spécialisation Symfony et développement full-stack.',
                 ]
             ],
             [
-                'degree'      => 'education.bac.degree',
-                'school'      => 'Lycée Aristide Briand',
-                'location'    => 'education.bac.location',
-                'period'      => 'education.bac.period',
-                'logo'        => 'schools/aristide-briand.webp',
+                'degree'      => 'BTS Management des Unités Commerciales',
+                'school'      => 'CCI Strasbourg',
+                'location'    => 'Strasbourg, France',
+                'period'      => '2012 - 2014',
+                'logo'        => 'schools/cci-strasbourg.png',
                 'description' => [
-                    'education.bac.description.1',
+                    'Formation commerciale et gestion d’équipes.',
                 ]
-            ]
+            ],
         ];
     }
 
     /**
      * Retourne la liste des projets réalisés.
      */
-    public function getProjects(): array
-    {
-        return [
-            [
-                'title'        => 'projects.inventory-management.title',
-                'description'  => 'projects.inventory-management.description',
-                'image'        => 'projects/inventory-management.png',
-                'github'       => null,
-                'website'      => null,
-                'demo'         => 'https://inventory-management-simple-demo.vercel.app/',
-                'technologies' => $this->mapTechs([
-                    'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Node.js', 'SQLite', 'PostgreSQL', 'REST APIs', 'Git'
-                ])
-            ],
-            [
-                'title'        => 'projects.klimber_kids.title',
-                'description'  => 'projects.klimber_kids.description',
-                'image'        => 'projects/klimber-kids.png',
-                'github'       => null,
-                'website'      => 'https://klimber-kids.com',
-                'demo'         => null,
-                'technologies' => $this->mapTechs([
-                    'PHP', 'HTML', 'CSS', 'JavaScript', 'Symfony', 'Bootstrap', 'MySQL', 'REST APIs', 'Git'
-                ])
-            ],
-            [
-                'title'        => 'projects.dashboard-si.title',
-                'description'  => 'projects.dashboard-si.description',
-                'image'        => 'projects/dashboard-si.png',
-                'github'       => 'https://github.com/Will6855/IT-Department-Dashboard',
-                'website'      => null,
-                'demo'         => 'https://it-department-dashboard-demo.vercel.app/',
-                'technologies' => $this->mapTechs([
-                    'Python', 'HTML', 'CSS', 'JavaScript', 'Flask', 'REST APIs'
-                ])
-            ],
-            [
-                'title'        => 'projects.email-sender.title',
-                'description'  => 'projects.email-sender.description',
-                'image'        => 'projects/email-sender.png',
-                'github'       => 'https://github.com/Will6855/HTML-Email-Sender',
-                'website'      => 'https://html-email-sender.vercel.app/',
-                'demo'         => null,
-                'technologies' => $this->mapTechs([
-                    'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Node.js', 'SQLite', 'PostgreSQL', 'REST APIs', 'Git'
-                ])
-            ],
-        ];
-    }
+   /**
+ * Retourne la liste des projets réalisés.
+ */
+public function getProjects(): array
+{
+    return [
+        [
+            'title'        => 'Prix-carburants.gouv.fr',
+            'description'  => 'Plateforme gouvernementale de suivi des prix des carburants en temps réel - Ministère de l\'Économie',
+            'image'        => 'projects/prix-carburants.jpg',
+            'website'      => 'https://www.prix-carburants.gouv.fr',
+            'github'       => null, // Code propriétaire
+            'demo'         => null,
+            'technologies' => $this->mapTechs([
+                'PHP', 'Symfony', 'API Platform', 'MySQL', 
+                'Twig', 'Bootstrap', 'Docker', 'REST APIs', 
+                'Git', 'Agile', 'Postman'
+            ]),
+            'features'     => [
+                'Intégration des flux Open Data en temps réel',
+                'Système de géolocalisation des stations-service',
+                'API publique avec documentation technique',
+                'Tableaux de bord analytiques pour le ministère',
+                'Conformité RGAA et sécurité gouvernementale'
+            ]
+        ],
+        [
+            'title'        => 'Vigicrues.gouv.fr',
+            'description'  => 'Système national de surveillance et d\'alerte des crues - Ministère de la Transition Écologique',
+            'image'        => 'projects/vigicrues.jpg',
+            'website'      => 'https://www.vigicrues.gouv.fr',
+            'github'       => null,
+            'demo'         => null,
+            'technologies' => $this->mapTechs([
+                'Symfony', 'PHP', 'Node.js', 'MySQL', 
+                'TypeScript', 'Leaflet.js', 'API REST', 
+                'Docker', 'GitLab CI/CD'
+            ]),
+            'features'     => [
+                'Visualisation cartographique en temps réel',
+                'Intégration avec les API hydrométriques',
+                'Système d\'alertes push multi-canaux',
+                'Tableaux de bord personnalisables pour les préfectures',
+                'Gestion des seuils d\'alerte configurables'
+            ]
+        ],
+        [
+            'title'        => 'Application mobile VIGICRUES',
+            'description'  => 'Application cross-platform de surveillance des crues (Android/iOS)',
+            'image'        => 'projects/vigicrues-mobile.jpg',
+            'website'      => null,
+            'github'       => null,
+            'demo'         => 'https://play.google.com/store/apps/details?id=fr.gouv.vigicrues',
+            'technologies' => $this->mapTechs([
+                'Ionic', 'Angular', 'TypeScript', 'Capacitor', 
+                'Chart.js', 'Geolocation API', 'Push Notifications'
+            ]),
+            'features'     => [
+                'Notifications push en cas d\'alerte crue',
+                'Géolocalisation des zones à risque',
+                'Synchro offline des données critiques',
+                'Intégration profonde avec les API Vigicrues',
+                'Publication sur Apple Store & Play Store'
+            ]
+        ],
+    ];
+}
+
 
     /**
      * Retourne les informations personnelles.
      */
-public function getPersonalInfo(): array
-{
-    return [
-        'name' => 'Sylvain GROSREY',
-        'title' => 'Développeur Web et Mobile Full-Stack',
-        'bio' => 'Spécialiste Symfony et React avec 3 ans d\'expérience...',
-        'profile_image' => 'images/profil.jpg',
-        'social' => [
-            'linkedin' => 'https://linkedin.com/in/sylvain-grosrey',
-            'github' => 'https://github.com/sylvain-grosrey',
-            'email' => 'contact@sylvain-grosrey.fr'
-        ],
-        'cv' => 'files/cv_sylvain_grosrey.pdf'
-    ];
-}
-
-    public function calculateAge(\DateTimeInterface $birthDate): int
-{
-    $today = new \DateTime();
-    return $today->diff($birthDate)->y;
-}
-
+    public function getPersonalInfo(): array
+    {
+        return [
+            'name'          => 'Sylvain GROSREY',
+            'title'         => 'Développeur Web et Mobile Full-Stack',
+            'bio'           => 'Développeur full-stack passionné spécialisé en Symfony et PHP avec plus de 5 ans d’expérience dans des projets web et mobiles critiques.',
+            'profile_image' => 'images/profil.jpg',
+            'social'        => [
+                'linkedin' => 'https://linkedin.com/in/sylvaingrosrey',
+                'github'   => 'https://github.com/sylvain-grosrey',
+                'email'    => 'contact@sylvain-grosrey.fr',
+            ],
+            'cv'            => 'files/cv_sylvain_grosrey.pdf',
+        ];
+    }
 
     /**
      * Utilitaire pour transformer un tableau de noms de technologies en tableau de données enrichies.
      */
     private function mapTechs(array $names): array
     {
-        return array_map(fn($tech) => $this->findTechByName($tech), $names);
+        return array_filter(array_map(fn($tech) => $this->findTechByName($tech), $names));
     }
 }
