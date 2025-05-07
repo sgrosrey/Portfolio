@@ -1,0 +1,248 @@
+personal_info:
+  name: 'Sylvain GROSREY'
+  title: 'Développeur Web et Mobile Full-Stack'
+  bio: >
+    Développeur full-stack passionné spécialisé en Symfony et PHP avec plus de 5 ans d’expérience dans des projets web et mobiles critiques.
+  profile_image: 'images/profil.jpg'
+  social:
+    linkedin: 'https://linkedin.com/in/sylvaingrosrey'
+    github: 'https://github.com/sylvain-grosrey'
+    email: 'contact@sylvain-grosrey.fr'
+  cv: 'files/cv_sylvain_grosrey.pdf'
+
+skills:
+  Languages:
+    icon: 'fa-solid fa-code'
+    color_bg: 'blue-500/40'
+    color_text: 'blue-400'
+    color_hover: 'blue-800'
+    items:
+      - name: 'HTML'
+        icon: 'fa-brands fa-html5'
+        display: true
+      - name: 'CSS'
+        icon: 'fa-brands fa-css3-alt'
+        display: true
+      - name: 'JavaScript'
+        icon: 'fa-brands fa-js'
+        display: true
+      - name: 'TypeScript'
+        image: 'skills/typescript.svg'
+        display: true
+      - name: 'PHP'
+        icon: 'fa-brands fa-php'
+        display: true
+      - name: 'Python'
+        icon: 'fa-brands fa-python'
+        display: true
+      - name: 'Java'
+        icon: 'fa-brands fa-java'
+        display: true
+
+  Frameworks:
+    icon: 'fa-solid fa-layer-group'
+    color_bg: 'red-500/40'
+    color_text: 'red-400'
+    color_hover: 'red-800'
+    items:
+      - name: 'Symfony'
+        icon: 'fa-brands fa-symfony'
+        display: true
+      - name: 'Flask'
+        image: 'skills/flask.png'
+        display: true
+      - name: 'Bootstrap'
+        icon: 'fa-brands fa-bootstrap'
+        display: true
+
+  Backend:
+    icon: 'fa-solid fa-server'
+    color_bg: 'green-500/40'
+    color_text: 'green-400'
+    color_hover: 'green-800'
+    items:
+      - name: 'Node.js'
+        icon: 'fa-brands fa-node'
+        display: true
+      - name: 'MySQL'
+        icon: 'fa-solid fa-database'
+        display: true
+      - name: 'SQLite'
+        icon: 'fa-solid fa-database'
+        display: true
+      - name: 'REST APIs'
+        icon: 'fa-solid fa-server'
+        display: true
+
+  Practices:
+    icon: 'fa-solid fa-list-check'
+    color_bg: 'yellow-500/40'
+    color_text: 'yellow-400'
+    color_hover: 'yellow-800'
+    items:
+      - name: 'Agile'
+        icon: 'fa-solid fa-arrows-spin'
+        display: true
+      - name: 'Git'
+        icon: 'fa-brands fa-git-alt'
+        display: true
+      - name: 'Postman'
+        image: 'skills/postman.svg'
+        display: true
+
+experiences:
+  - title: 'Développeur Full-Stack'
+    company: 'Actimage'
+    location: 'Strasbourg, France'
+    period: '2019 - 2022'
+    logo: 'companies/actimage.png'
+    description:
+      - 'Développement d’applications gouvernementales majeures, telles que prix-carburants.gouv.fr et vigicrues.gouv.fr.'
+      - 'Gestion complète des projets, de la conception au déploiement.'
+      - 'Optimisation des performances et sécurisation des données.'
+      - 'Collaboration avec Actimage, acteur reconnu en IT dans le Grand Est.'
+    technologies:
+      - 'Symfony'
+      - 'PHP'
+      - 'TypeScript'
+      - 'Node.js'
+      - 'MySQL'
+      - 'SQLite'
+      - 'REST APIs'
+      - 'Git'
+      - 'Agile'
+      - 'Postman'
+
+  - title: 'Développeur Full-Stack Freelance'
+    company: 'Indépendant (WIWEB)'
+    location: 'Strasbourg, France'
+    period: '2022 - Présent'
+    logo: 'companies/freelance.png'
+    description:
+      - 'Gestion complète de projets web et mobiles pour divers clients, avec un focus sur Symfony et PHP.'
+      - 'Conception et développement d’applications sur mesure, orientées performance et sécurité.'
+      - 'Accompagnement client de la phase de conception jusqu’au déploiement et maintenance.'
+    technologies:
+      - 'Symfony'
+      - 'PHP'
+      - 'TypeScript'
+      - 'Node.js'
+      - 'MySQL'
+      - 'SQLite'
+      - 'REST APIs'
+      - 'Git'
+      - 'Agile'
+      - 'Postman'
+
+  - title: 'Front Office Manager'
+    company: 'Hôtel Eden'
+    location: 'Saint-Barthélemy'
+    period: '2016 - 2018'
+    logo: 'companies/hotel-eden.png'
+    description:
+      - 'Management d’une équipe internationale de 6 personnes.'
+      - 'Digitalisation des processus clients pour améliorer l’expérience.'
+    technologies: []
+
+projects:
+  - title: 'Prix-carburants.gouv.fr'
+    description: >
+      Plateforme gouvernementale de suivi des prix des carburants en temps réel - Ministère de l\'Économie.
+    image: 'projects/prix-carburants.jpg'
+    website: 'https://www.prix-carburants.gouv.fr'
+    github: null
+    demo: null
+    technologies:
+      - 'PHP'
+      - 'Symfony'
+      - 'API Platform'
+      - 'MySQL'
+      - 'Twig'
+      - 'Bootstrap'
+      - 'Docker'
+      - 'REST APIs'
+      - 'Git'
+      - 'Agile'
+      - 'Postman'
+    features:
+      - 'Intégration des flux Open Data en temps réel'
+      - 'Système de géolocalisation des stations-service'
+      - 'API publique avec documentation technique'
+      - 'Tableaux de bord analytiques pour le ministère'
+      - 'Conformité RGAA et sécurité gouvernementale'
+
+  - title: 'Vigicrues.gouv.fr'
+    description: >
+      Système national de surveillance et d\'alerte des crues - Ministère de la Transition Écologique.
+    image: 'projects/vigicrues.jpg'
+    website: 'https://www.vigicrues.gouv.fr'
+    github: null
+    demo: null
+    technologies:
+      - 'Symfony'
+      - 'PHP'
+      - 'Node.js'
+      - 'MySQL'
+      - 'TypeScript'
+      - 'Leaflet.js'
+      - 'REST APIs'
+      - 'Docker'
+      - 'GitLab CI/CD'
+    features:
+      - 'Visualisation cartographique en temps réel'
+      - 'Intégration avec les API hydrométriques'
+      - 'Système d\'alertes push multi-canaux'
+      - 'Tableaux de bord personnalisables pour les préfectures'
+      - 'Gestion des seuils d\'alerte configurables'
+
+  - title: 'Application mobile VIGICRUES'
+    description: >
+      Application cross-platform de surveillance des crues (Android/iOS) développée avec Ionic.
+    image: 'projects/vigicrues-mobile.jpg'
+    website: null
+    github: null
+    demo: 'https://play.google.com/store/apps/details?id=fr.gouv.vigicrues'
+    technologies:
+      - 'Ionic'
+      - 'Angular'
+      - 'TypeScript'
+      - 'Capacitor'
+      - 'Chart.js'
+      - 'Geolocation API'
+      - 'Push Notifications'
+    features:
+      - 'Notifications push en cas d\'alerte crue'
+      - 'Géolocalisation des zones à risque'
+      - 'Synchro offline des données critiques'
+      - 'Intégration profonde avec les API Vigicrues'
+      - 'Publication sur Apple Store & Play Store'
+
+  - title: 'Système de gestion d\'inventaire'
+    description: >
+      Solution full-stack pour gestion de stock industriel, avec compilation Windows.
+    image: 'projects/inventory-management.png'
+    github: null
+    website: null
+    demo: 'https://inventory-management-simple-demo.vercel.app/'
+    technologies:
+      - 'Node.js'
+      - 'TypeScript'
+      - 'SQLite'
+      - 'REST APIs'
+
+educations:
+  - degree: 'Développeur Web et Web Mobile'
+    school: 'Wild Code School Strasbourg'
+    location: 'Strasbourg, France'
+    period: '2018'
+    logo: 'schools/wild-code-school.png'
+    description:
+      - 'Spécialisation Symfony et développement full-stack.'
+
+  - degree: 'BTS Management des Unités Commerciales'
+    school: 'CCI Strasbourg'
+    location: 'Strasbourg, France'
+    period: '2012 - 2014'
+    logo: 'schools/cci-strasbourg.png'
+    description:
+      - 'Formation commerciale et gestion d’équipes.'

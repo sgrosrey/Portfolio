@@ -2,6 +2,8 @@
 
 namespace App\Service;
 
+use Symfony\Component\Yaml\Yaml;
+
 /**
  * Service centralisant les données du portfolio.
  */
