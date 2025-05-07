@@ -1,162 +1,108 @@
 meta:
-  title: 'Guillaume PIARD | Portfolio'
-  description: 'Portfolio of Guillaume PIARD, software developer. Discover my innovative projects, creative approach, and how I can help you turn your ideas into unique digital solutions.'
-  keywords: 'portfolio, bts sio, sio, guillaume piard, piard, portfolio piard, portfolio guillaume piard, dev, developer, developer rouen, developer evreux, evreux, rouen'
-  
+  title: 'Sylvain GROSREY | Full-Stack Developer Portfolio'
+  description: 'Portfolio of Sylvain GROSREY, full-stack web and mobile developer. Discover my technical projects, expertise in Symfony, and solution-oriented approach.'
+  keywords: 'portfolio, web developer, Symfony, PHP, mobile, Strasbourg, full-stack, TypeScript, freelance, API Platform'
+
 sidebar:
-  job_title: 'Full-Stack Web Developer'
-  location: 'Evreux, France 🇫🇷'
-  tagline: 'Crafting Intuitive and High-Performance Applications'
-  resume: 'View Full Resume'
-  contact_button: 'Get in Touch'
-  open_to_job: 'Open to new challenges'
-  open_to_job_description: 'Currently seeking full-time positions'
-  lets_connect: 'Let''s Connect'
+  job_title: 'Full-Stack Web & Mobile Developer'
+  location: 'Strasbourg, France 🇫🇷'
+  tagline: 'Turning your ideas into efficient digital solutions'
+  resume: 'Download my CV'
+  contact_button: 'Let’s collaborate'
+  open_to_job: 'Open to new projects'
+  open_to_job_description: 'Experienced freelancer, eager for challenging missions'
+  lets_connect: 'Get in touch'
 
 sections:
-  about: 'About Me'
-  skills: 'Skills'
+  about: 'Professional Profile'
+  skills: 'Technical Expertise'
   experiences: 'Experience'
   education: 'Education'
   projects: 'Projects'
-  
+
 about:
-  paragraph1: '%age%-year-old IT technician with a 2-year degree (BTS SIO, SLAM option), specialized in <span class="w-fit bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">web application development</span>. I have experience in designing, deploying, and maintaining solutions tailored to user needs.'
-  paragraph2: '<span class="w-fit bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Organized, autonomous, responsive, and curious</span>, I focus on delivering reliable and efficient solutions.'
+  paragraph1: >-
+    Passionate full-stack developer with over 5 years of experience designing and developing high-performance web and mobile applications, notably for government clients and critical projects.
+    Specialized in Symfony, PHP, API Platform, and modern technologies like TypeScript.
+  paragraph2: >-
+    Autonomous, rigorous and solution-oriented, I transform business needs into robust and scalable digital solutions.
+    Independent entrepreneur under the commercial name WIWEB, based in Strasbourg, managing projects from design to deployment.
 
 skills:
   categories:
-    languages: 'Languages'
-    frameworks: 'Frameworks'
     backend: 'Backend'
-    practices: 'Practices'
+    frontend: 'Frontend'
+    mobile: 'Mobile'
+    practices: 'Methodologies'
+  items:
+    backend: ['Symfony', 'PHP', 'API Platform', 'MySQL', 'Node.js']
+    frontend: ['TypeScript', 'JavaScript', 'HTML5', 'CSS3']
+    mobile: ['Hybrid applications']
+    practices: ['Agile/Scrum', 'Git Flow', 'CI/CD', 'TDD']
 
 experiences:
   at_experience: 'at'
-  sogea:
-    title: 'Full-Stack Web Developer'
-    location: 'Gravigny, France'
-    period: 'March 2025'
+  actimage_freelance:
+    title: 'Full-Stack Freelance Developer'
+    location: 'Strasbourg'
+    period: '2019 - Present'
     description:
-      1: '↳ Development of an inventory management application (Next.js / Node.js)'
-      2: '↳ Automation of reports and stock tracking'
-      3: '↳ Windows compilation for local usage'
-  klimber_kids:
-    title: 'Full-Stack Web Developer'
-    location: 'Guichainville, France'
-    period: 'July 2024 - January 2025 (Part-time Project)'
+      1: '↳ Developed major government applications such as prix-carburants.gouv.fr and vigicrues.gouv.fr'
+      2: '↳ Full project management from design to deployment'
+      3: '↳ Performance optimization and data security'
+      4: '↳ Collaboration with Actimage, a recognized IT player in the Grand Est region'
+  hotel_eden:
+    title: 'Front Office Manager'
+    location: 'Saint-Barthélemy'
+    period: '2016 - 2018'
     description:
-      1: '↳ Creation of a showcase website (PHP / Symfony)'
-      2: '↳ Security implementation with anti-spam protection (Honeypot)'
-      3: '↳ Reservation system with availability management'
-  cs_lane:
-    title: 'Full-Stack Web Developer (Internship)'
-    location: 'Elbeuf, France'
-    period: 'January 2024 - February 2024'
-    description:
-      1: '↳ Development of Android (Kotlin) & iOS (Swift) mobile applications'
-      2: '↳ Implementation of an appointment system and REST API (PHP & MySQL)'
-      3: '↳ Agile project management (SCRUMBAN)'
-  uimm:
-    title: 'Full-Stack Web Developer (Internship)'
-    location: 'Evreux, France'
-    period: 'May 2023 - June 2023'
-    description:
-      1: '↳ Development of a Web application for the IT department (Python / Flask)'
-      2: '↳ Dynamic display of IT data via Microsoft Graph API'
+      1: '↳ Managed an international team of 6 people'
+      2: '↳ Digitalized customer processes'
 
 education:
   at_education: 'at'
-  bts:
-    degree: 'BTS SIO (Organisational IT Services)'
-    location: 'Rouen, France'
-    period: '2022 - 2024'
-    description:
-      1: '↳ SLAM Option (Software Solutions & Business Applications)'
-  bac:
-    degree: 'General Baccalaureate'
-    location: 'Evreux, France'
-    period: '2022'
-    description:
-      1: '↳ Specialty in Mathematics and Contemporary English World'
+  wild_code_school:
+    degree: 'Web and Mobile Web Developer'
+    location: 'Wild Code School Strasbourg'
+    period: '2018'
+    description: '↳ Specialization in Symfony'
+  bts_muc:
+    degree: 'BTS in Business Unit Management'
+    location: 'CCI Strasbourg'
+    period: '2012 - 2014'
 
 projects:
-  links:
-    view_code: 'View Code'
-    visit_website: 'Visit Website'
-    live_demo: 'Demo'
-  inventory-management:
-    title: 'Inventory Management'
-    description: 'A web application for inventory management, compiled into an executable for Windows, built with Next.js, Node.js, and SQLite, featuring report generation, etc.'
+  inventory_management:
+    title: 'Inventory Management System'
+    description: 'Full-stack application with Windows compilation, using Node.js and TypeScript'
   klimber_kids:
-    title: 'Klimber-Kids'
-    description: 'A showcase website for a climbing module manufacturer, highlighting their product range and services with a modern and intuitive interface.'
-  dashboard-si:
-    title: 'IT Dashboard'
-    description: 'An IT Department dashboard integrating Microsoft Graph API, providing centralized management and real-time monitoring of IT resources.'
-  email-sender:
-    title: 'Email Sender'
-    description: 'A sophisticated Next.js application for professional email management, featuring marketing campaign capabilities, SMTP configuration management, and real-time email preview.'
+    title: 'E-commerce Platform'
+    description: 'Showcase site with booking system and anti-spam protection'
+  government_dashboards:
+    title: 'Government Dashboards'
+    description: 'Real-time data visualization solutions for ministries'
 
 contact_form:
-  title: 'Get in Touch'
-  name: 'Name'
-  name_placeholder: 'Your name'
-  email: 'Email'
-  email_placeholder: 'Your email'
-  message: 'Message'
-  message_placeholder: 'Your message'
-  send: 'Send Message'
-  cancel: 'Cancel'
-  privacy_consent: "I agree that my data will be processed in accordance with the <a href='%privacy_url%' class='link link-primary' target='_blank'>privacy policy</a>."
+  title: 'Professional Contact'
+  name: 'Full Name'
+  email_placeholder: 'sylvain@domain.com'
+  message_placeholder: 'Describe your project...'
+  privacy_consent: "I accept the privacy policy"
 
 legal_notice:
   editor:
-    title: 'Website Editor'
-    edited_by: 'This website is edited by Guillaume PIARD'
-    contact: 'Contact'
-  hosting:
-    title: 'Hosting'
-    hosted_by: 'This website is hosted by'
-    company_info: 'SAS with a capital of %capital% €'
-    ape: 'APE Code'
-    vat: 'VAT Number'
-    address: 'Head Office: 2 rue Kellermann - 59100 Roubaix – France'
-    phone: 'Phone'
-  intellectual_property:
-    title: 'Intellectual Property'
-    content: 'This entire website is subject to French and international legislation on copyright and intellectual property. All reproduction rights are reserved, including for downloadable documents and iconographic and photographic representations.'
-  links:
-    title: 'Hyperlinks'
-    content: 'The website may contain hyperlinks to other sites. I am not responsible for the content of these external sites.'
+    edited_by: 'Sylvain GROSREY - Independent Developer'
+    contact: '7 Rue Gloxin, 67000 Strasbourg'
+    siret: '793 360 579'
 
 privacy_policy:
   data_collection:
-    title: 'Data Collection'
-    description: 'Personal data collected on this site is limited to the information you voluntarily provide through the contact form:'
     fields:
-      name: 'Name'
-      email: 'Email address'
-      message: 'Message'
-  data_usage:
-    title: 'Data Usage'
-    description: 'The information you provide is used solely to respond to your messages and is never shared with third parties.'
-  data_retention:
-    title: 'Data Retention'
-    description: 'Personal data is retained for the duration necessary to manage our relationship with you.'
-  your_rights:
-    title: 'Your Rights'
-    description: 'In accordance with the French "Data Protection Act" of January 6, 1978, as amended, and European Regulation No. 2016/679/EU of April 27, 2016, you have the right to access, rectify, port, and delete your data.'
-  cookies:
-    title: 'Cookies'
-    description: 'This site does not use tracking or advertising cookies. Only cookies necessary for the website''s functionality may be used.'
-  contact:
-    title: 'Contact'
-    description: 'For any questions regarding this privacy policy or to exercise your rights, you can contact me at: gpiard27@gmail.com'
+      name: 'Professional name'
+      email: 'Professional email'
+
+contact:
+  description: 'For any inquiries: grosreysylvain+candidatures@gmail.com'
 
 footer:
-  legal_notice: 'Legal Notice'
-  privacy_policy: 'Privacy Policy'
-
-common:
-  back_to_home: '&larr; Back to Home'
+  copyright: '© 2024 Sylvain GROSREY - All rights reserved'

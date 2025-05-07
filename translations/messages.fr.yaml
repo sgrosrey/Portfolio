@@ -1,28 +1,32 @@
 meta:
   title: 'Sylvain GROSREY | Portfolio Développeur Full-Stack'
-  description: 'Portfolio de Sylvain GROSREY, développeur web et mobile full-stack. Découvrez mes réalisations techniques, mon expertise Symfony/React et mon approche orientée solutions.'
-  keywords: 'portfolio, développeur web, Symfony, React, mobile, Strasbourg, full-stack, PHP, TypeScript'
+  description: 'Portfolio de Sylvain GROSREY, développeur web et mobile full-stack. Découvrez mes réalisations techniques, mon expertise Symfony et mon approche orientée solutions.'
+  keywords: 'portfolio, développeur web, Symfony, PHP, mobile, Strasbourg, full-stack, TypeScript, freelance, API Platform'
 
 sidebar:
-  job_title: 'Développeur Full-Stack Web/Mobile'
+  job_title: 'Développeur Full-Stack Web & Mobile'
   location: 'Strasbourg, France 🇫🇷'
   tagline: 'Transformer vos idées en solutions digitales performantes'
   resume: 'Télécharger mon CV'
   contact_button: 'Collaborons ensemble'
   open_to_job: 'Disponible pour nouveaux projets'
-  open_to_job_description: 'Freelance expérimenté ouvert aux missions stimulantes'
+  open_to_job_description: 'Freelance expérimenté, ouvert aux missions stimulantes'
   lets_connect: 'Contactez-moi'
 
 sections:
-  about: 'Profil Professionnel'
-  skills: 'Expertises Techniques'
+  about: 'Profil professionnel'
+  skills: 'Expertises techniques'
   experiences: 'Parcours'
   education: 'Formation'
   projects: 'Réalisations'
 
 about:
-  paragraph1: 'Développeur full-stack de 35 ans avec 5 ans dexpérience, spécialisé dans la création dapplications web et mobiles haute performance. Expert en Symfony et React, je combine rigueur technique et vision utilisateur.'
-  paragraph2: 'Autonome et orienté solution, je maîtrise lensemble du cycle de développement, du concept initial au déploiement en production.'
+  paragraph1: >-
+    Développeur full-stack passionné avec plus de 5 ans d’expérience dans la conception et le développement d’applications web et mobiles performantes, notamment pour des clients gouvernementaux et des projets critiques.
+    Spécialisé en Symfony, PHP, API Platform et technologies modernes telles que TypeScript.
+  paragraph2: >-
+    Autonome, rigoureux et orienté solution, je transforme les besoins métiers en solutions digitales robustes et évolutives.
+    Entrepreneur individuel sous le nom commercial WIWEB, basé à Strasbourg, je gère mes projets de la conception au déploiement.
 
 skills:
   categories:
@@ -32,27 +36,27 @@ skills:
     practices: 'Méthodologies'
   items:
     backend: ['Symfony', 'PHP', 'API Platform', 'MySQL', 'Node.js']
-    frontend: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS']
-    mobile: ['React Native', 'Flutter', 'Applications hybrides']
+    frontend: ['TypeScript', 'JavaScript', 'HTML5', 'CSS3']
+    mobile: ['Applications hybrides']
     practices: ['Agile/Scrum', 'Git Flow', 'CI/CD', 'TDD']
 
 experiences:
   at_experience: 'chez'
   actimage_freelance:
-    title: 'Développeur Full-Stack'
+    title: 'Développeur Full-Stack Freelance'
     location: 'Strasbourg'
     period: '2019 - Présent'
     description:
-      1: '↳ Développement dapplications gouvernementales critiques'
-      2: '↳ Projets phares : prix-carburants.gouv.fr, vigicrues.gouv.fr'
+      1: '↳ Développement d’applications gouvernementales majeures, telles que prix-carburants.gouv.fr et vigicrues.gouv.fr'
+      2: '↳ Gestion complète des projets, de la conception au déploiement'
       3: '↳ Optimisation des performances et sécurisation des données'
-
+      4: '↳ Collaboration avec Actimage, acteur reconnu en IT dans le Grand Est'
   hotel_eden:
     title: 'Front Office Manager'
     location: 'Saint-Barthélemy'
     period: '2016 - 2018'
     description:
-      1: '↳ Management dune équipe internationale de 6 personnes'
+      1: '↳ Management d’une équipe internationale de 6 personnes'
       2: '↳ Digitalisation des processus clients'
 
 education:
@@ -61,8 +65,7 @@ education:
     degree: 'Développeur Web et Web Mobile'
     location: 'Wild Code School Strasbourg'
     period: '2018'
-    description: '↳ Spécialisation Symfony/React'
-
+    description: '↳ Spécialisation Symfony'
   bts_muc:
     degree: 'BTS Management des Unités Commerciales'
     location: 'CCI Strasbourg'
@@ -70,19 +73,17 @@ education:
 
 projects:
   inventory_management:
-    title: 'Système de Gestion dInventaire'
-    description: 'Application full-stack avec compilation Windows, utilisant Next.js et Node.js'
-
+    title: 'Système de gestion d’inventaire'
+    description: 'Application full-stack avec compilation Windows, utilisant Node.js et TypeScript'
   klimber_kids:
-    title: 'Plateforme E-commerce'
+    title: 'Plateforme e-commerce'
     description: 'Site vitrine avec système de réservation et protection anti-spam'
-
   government_dashboards:
-    title: 'Tableaux de Bord Gouvernementaux'
+    title: 'Tableaux de bord gouvernementaux'
     description: 'Solutions de visualisation de données en temps réel pour ministères'
 
 contact_form:
-  title: 'Contact Professionnel'
+  title: 'Contact professionnel'
   name: 'Nom complet'
   email_placeholder: 'sylvain@domain.com'
   message_placeholder: 'Décrivez votre projet...'
@@ -90,7 +91,7 @@ contact_form:
 
 legal_notice:
   editor:
-    edited_by: 'Sylvain GROSREY - Développeur Indépendant'
+    edited_by: 'Sylvain GROSREY - Développeur indépendant'
     contact: '7 Rue Gloxin, 67000 Strasbourg'
     siret: '793 360 579'
 
@@ -99,8 +100,9 @@ privacy_policy:
     fields:
       name: 'Nom professionnel'
       email: 'Email professionnel'
-  contact:
-    description: 'Pour toute demande : grosreysylvain+candidatures@gmail.com'
+
+contact:
+  description: 'Pour toute demande : grosreysylvain+candidatures@gmail.com'
 
 footer:
   copyright: '© 2024 Sylvain GROSREY - Tous droits réservés'
