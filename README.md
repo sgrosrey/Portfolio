@@ -1,88 +1,230 @@
 # Symfony Developer Portfolio
 
+## Présentation
+
+Ce projet est un portfolio de développeur web et mobile moderne, multilingue, construit avec Symfony. Il est pensé pour être **facilement personnalisable** et s’adapter à n’importe quel profil (compétences, expériences, projets, etc.).
+
+---
+
+## Fonctionnalités
+
+- 🌐 Support multilingue (dossiers de traduction)
+- 📱 Design responsive
+- 🚀 Personnalisation simple (infos, compétences, projets…)
+- 📧 Formulaire de contact intégré (avec envoi d’e-mails)
+- 📝 Mentions légales, politique de confidentialité
+- 🔒 Bonnes pratiques de sécurité Symfony
+- 🗂️ Organisation claire du code et des templates (Twig)[1]
+
+---
+
+## Personnalisation
+
+### 1. **Informations personnelles**
+
+Modifie le fichier :  
+- `src/Service/PortfolioService.php`  
+  - **Compétences** : adapte les méthodes `getSkills()`
+  - **Expériences** : `getExperiences()`
+  - **Formations** : `getEducations()`
+  - **Données personnelles** : `getPersonalInfo()`
+
+### 2. **Contact et détails personnels**
+
+Modifie :  
+- `src/Controller/HomeController.php`  
+  - Configuration de l’envoi d’e-mail (service `EmailService`)
+  - Date de naissance pour le calcul de l’âge (si affiché)
+
+### 3. **Mentions légales et conformité**
+
+Modifie :  
+- `templates/home/legal_notice.html.twig`  
+  - Tes infos personnelles, SIRET, adresse, etc.
+  - Les conditions légales adaptées à ta situation
+
+### 4. **SEO et configuration webmaster**
+
+- `public/robots.txt` : règles d’indexation
+- `public/sitemap.xml` : URLs et pages à indexer
+
+### 5. **Traductions**
+
+Tout le contenu multilingue est dans le dossier `translations/` :
+- `messages.fr.yaml` : français
+- `messages.en.yaml` : anglais
+- Ajoute d’autres langues si besoin
+
+---
+
+## Installation
+
+### Prérequis
+
+- PHP 8.1+
+- Composer
+- Symfony CLI
+
+### Étapes
+
+```bash
+git clone https://github.com/sgrosrey/developer-portfolio.git
+cd developer-portfolio
+composer install
+```
+
+- Configure les variables d’environnement dans `.env` (copie de `.env.example` si besoin)
+- Lance le serveur de développement :
+```bash
+symfony server:start
+```
+
+---
+
+## Déploiement
+
+- Compatible avec tout hébergement PHP/Symfony moderne
+- Configure bien tes variables d’environnement en production
+
+---
+
+## Contribution
+
+- Fork le projet et adapte-le à ton profil
+- Les Pull Requests sont bienvenues !
+
+---
+
+## Licence
+
+Ce projet est sous licence MIT.
+
+---
+
+## Ressources utiles
+
+- [Documentation Symfony](https://symfony.com/doc/current/index.html)[10]
+- [Guide sur les templates Twig](https://symfony.com/doc/current/templates.html)[1]
+- [Exemple de personnalisation de portfolio Symfony](https://jeremygrimont.fr/projet/6)[11]
+
+---
+
+**N.B. :**  
+Ce projet est pensé pour être un socle professionnel, facilement personnalisable, et respectant les standards de qualité Symfony.  
+Pour toute question ou suggestion, n’hésite pas à ouvrir une issue ou une PR !
+
+---
+
+**English version below**
+
+---
+
+# Symfony Developer Portfolio
+
 ## Overview
-This is a modern, multilingual developer portfolio built with Symfony, designed to be easily customizable and adaptable to different personal profiles.
 
-## Features
-- 🌐 Multilingual Support (Translations)
-- 📱 Responsive Design
-- 🚀 Easy Customization
-- 📧 Contact Form Integration
+This is a modern, multilingual developer portfolio built with Symfony, designed for easy customization and adaptation to any developer profile.
 
-## Customization
+### Features
 
-### Personal Information
-To personalize this portfolio, you'll need to modify the following files:
+- 🌐 Multilingual support (translations directory)
+- 📱 Responsive design
+- 🚀 Easy customization (skills, experience, projects…)
+- 📧 Integrated contact form (with email sending)
+- 📝 Legal notice and privacy policy pages
+- 🔒 Symfony security best practices
+- 🗂️ Clear code and template organization (Twig)[1]
 
-#### Core Information
-- `src/Service/PortfolioService.php`: 
-  - Update skills
-  - Modify work experience
-  - Edit education details
-  - Add/modify basic personal information
+### Customization
 
-#### Contact and Personal Details
-- `src/Controller/HomeController.php`:
-  - Configure mailing settings for contact form
-  - Set birthdate for age display (optional: it depends if you keep it in 'about.paragraph.1')
+#### 1. **Personal information**
 
-#### Legal and Compliance
-- `templates/home/legal_notice.html.twig`:
-  - Update personal and business information
-  - Modify legal terms and conditions
-  - Add your specific legal disclaimers and contact information
+Edit:  
+- `src/Service/PortfolioService.php`  
+  - **Skills**: update `getSkills()`
+  - **Experience**: update `getExperiences()`
+  - **Education**: update `getEducations()`
+  - **Personal details**: update `getPersonalInfo()`
 
-#### SEO and Webmaster Configuration
-- `public/robots.txt`: 
-  - Modify crawling and indexing rules
-  - Update disallow/allow directives
-  - Set appropriate search engine directives
+#### 2. **Contact and personal details**
 
-- `public/sitemap.xml`:
-  - Update site URLs
-  - Modify last modification dates
-  - Add/remove pages as needed
+Edit:  
+- `src/Controller/HomeController.php`  
+  - Configure email sending (`EmailService`)
+  - Set birthdate for age calculation (if displayed)
 
-#### Translations
-All translatable content is managed in the `translations/` directory:
-- `messages.en.yaml`: English translations
-- `messages.fr.yaml`: French translations
-- Add more language files as needed
+#### 3. **Legal and compliance**
+
+Edit:  
+- `templates/home/legal_notice.html.twig`  
+  - Your personal/business info, SIRET, address, etc.
+  - Adapt legal terms to your situation
+
+#### 4. **SEO and webmaster configuration**
+
+- `public/robots.txt`: crawling/indexing rules
+- `public/sitemap.xml`: update URLs and pages
+
+#### 5. **Translations**
+
+All multilingual content is in `translations/`:
+- `messages.fr.yaml`: French
+- `messages.en.yaml`: English
+- Add more languages as needed
+
+---
 
 ## Setup Instructions
 
 ### Prerequisites
+
 - PHP 8.1+
 - Composer
 - Symfony CLI
 
 ### Installation
-1. Clone the repository
-   ```bash
-   git clone https://github.com/Will6855/developer-portfolio.git
-   cd developer-portfolio
-   ```
 
-2. Install dependencies
-   ```bash
-   composer install
-   ```
+```bash
+git clone https://github.com/sgrosrey/developer-portfolio.git
+cd developer-portfolio
+composer install
+```
 
-3. Configure environment variables
-   - Copy `.env.example` to `.env`
-   - Update configuration as needed
+- Configure your environment variables in `.env` (copy from `.env.example` if needed)
+- Start the development server:
+```bash
+symfony server:start
+```
 
-4. Run the application
-   ```bash
-   symfony server:start
-   ```
+---
 
 ## Deployment
-- Can be easily deployed to platforms supporting Symfony
-- Ensure all environment variables are properly configured
+
+- Deployable on any modern PHP/Symfony hosting
+- Ensure all environment variables are properly set in production
+
+---
 
 ## Contributing
-Feel free to fork and customize for your own use. Pull requests are welcome!
+
+- Fork and adapt for your own use
+- Pull requests are welcome!
+
+---
 
 ## License
-This project is licensed under the [MIT License](LICENSE)
+
+This project is licensed under the MIT License.
+
+---
+
+## Useful resources
+
+- [Symfony Documentation](https://symfony.com/doc/current/index.html)[10]
+- [Twig Templates Guide](https://symfony.com/doc/current/templates.html)[1]
+- [Portfolio Symfony Example](https://jeremygrimont.fr/projet/6)[11]
+
+---
+
+**This project is designed as a professional, easily customizable base, following Symfony best practices.**  
+For questions or suggestions, feel free to open an issue or pull request!
