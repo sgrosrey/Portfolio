@@ -1,4 +1,13 @@
-// src/Service/EmailService.php
+<?php
+
+namespace App\Service;
+
+use App\Entity\ContactData;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
+use Symfony\Component\Mime\Email;
+use Twig\Environment;
+
 class EmailService
 {
     public function __construct(
@@ -17,8 +26,8 @@ class EmailService
     {
         $email = (new Email())
             ->from(new Address($data->getEmail(), $data->getName()))
-            ->to('contact@guillaume-piard.fr')
-            ->subject('Nouveau message portfolio')
+            ->to(new Address('contact@guillaume-piard.fr', 'Guillaume PIARD'))
+            ->subject('Nouveau message de ' . $data->getEmail())
             ->html($this->twig->render('emails/contact_admin.html.twig', [
                 'data' => $data
             ]));
@@ -26,5 +35,16 @@ class EmailService
         $this->mailer->send($email);
     }
 
-    // Méthode similaire pour sendConfirmationEmail
+    private function sendConfirmationEmail(ContactData $data): void
+    {
+        $email = (new Email())
+            ->from(new Address('contact@guillaume-piard.fr', 'Guillaume PIARD'))
+            ->to(new Address($data->getEmail(), $data->getName()))
+            ->subject('Confirmation de réception')
+            ->html($this->twig->render('emails/contact_confirmation.html.twig', [
+                'data' => $data
+            ]));
+
+        $this->mailer->send($email);
+    }
 }

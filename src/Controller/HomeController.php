@@ -2,50 +2,54 @@
 
 namespace App\Controller;
 
+use App\Form\ContactType;
+use App\Service\EmailService;
 use App\Service\PortfolioService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\{JsonResponse, Request, Response};
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\HttpFoundation\Request;
-use App\Form\ContactType;
-use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
-use Symfony\Component\Mime\Address;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 class HomeController extends AbstractController
 {
+    public function __construct(
+        private readonly PortfolioService $portfolioService,
+        private readonly EmailService $emailService
+    ) {}
 
-    private PortfolioService $portfolioService;
 
-    public function __construct(PortfolioService $portfolioService)
-    {
-        $this->portfolioService = $portfolioService;
-    }
-
-    #[Route('/switch-locale/{locale}', name: 'switch_locale', methods: ['POST', 'GET'])]
-    public function switchLocale(Request $request, string $locale, TranslatorInterface $translator): JsonResponse
-    {
+    #[Route('/switch-locale/{locale}', name: 'switch_locale', methods: ['POST'])]
+    public function switchLocale(
+        Request $request,
+        string $locale,
+        TranslatorInterface $translator
+    ): JsonResponse {
         $supportedLocales = ['en', 'fr'];
-        if (!in_array($locale, $supportedLocales)) {
-            return new JsonResponse(['success' => false, 'message' => 'Unsupported locale'], 400);
+        
+        if (!in_array($locale, $supportedLocales, true)) {
+            return $this->json([
+                'success' => false,
+                'message' => 'Unsupported locale'
+            ], Response::HTTP_BAD_REQUEST);
         }
 
-        // Set locale in session
         $request->getSession()->set('_locale', $locale);
+        $content = json_decode($request->getContent(), true, 512, JSON_THROW_ON_ERROR);
         
-        // Get translation keys from request body
-        $content = json_decode($request->getContent(), true);
-        $keys = $content['keys'] ?? [];
-        
-        // Translate all requested keys
+        // Liste des clés de traduction autorisées
+        $validKeys = [
+            'home', 'projects', 'experiences', 'educations', 
+            'skills', 'contact', 'legal', 'privacy'
+        ];
+        $keys = array_intersect($content['keys'] ?? [], $validKeys);
+
         $translations = [];
         foreach ($keys as $key) {
             $translations[$key] = $translator->trans($key, [], null, $locale);
         }
 
-        return new JsonResponse([
+        return $this->json([
             'success' => true,
             'locale' => $locale,
             'translations' => $translations
@@ -53,68 +57,24 @@ class HomeController extends AbstractController
     }
 
     #[Route('/', name: 'home')]
-    public function index(Request $request, MailerInterface $mailer): Response
+    public function index(Request $request): Response
     {
-        // Contact form handling
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             try {
-                $contactFormData = $form->getData();
-                
-                $adminEmail = (new Email())
-                    ->from(new Address($contactFormData->getEmail()))
-                    ->to(new Address('contact@guillaume-piard.fr'))
-                    ->subject('Nouveau message de ' . $contactFormData->getEmail())
-                    ->html(
-                        '<p><strong>Nom:</strong> ' . htmlspecialchars($contactFormData->getName()) . '</p>' .
-                        '<p><strong>Email:</strong> ' . htmlspecialchars($contactFormData->getEmail()) . '</p>' .
-                        '<p><strong>Message:</strong><br>' . nl2br(htmlspecialchars($contactFormData->getMessage())) . '</p>'
-                    );
-                $mailer->send($adminEmail);
-
-                $userEmail = (new Email())
-                    ->from(new Address('contact@guillaume-piard.fr', 'Guillaume PIARD'))
-                    ->to(new Address($contactFormData->getEmail()))
-                    ->subject('Message reçu')
-                    ->html(
-                        '<p><strong>Nom:</strong> ' . htmlspecialchars($contactFormData->getName()) . '</p>' .
-                        '<p><strong>Email:</strong> ' . htmlspecialchars($contactFormData->getEmail()) . '</p>' .
-                        '<p><strong>Message:</strong><br>' . nl2br(htmlspecialchars($contactFormData->getMessage())) . '</p>' .
-                        '<br>' .
-                        '<p>Merci pour votre message et de votre intérêt, je reviens vers vous dans les meilleurs délais. </p>' .
-                        '<p>Cordialement,</p>' .
-                        '<p>Guillaume PIARD</p>');
-                $mailer->send($userEmail);
-
+                $this->emailService->sendContactEmails($form->getData());
                 $this->addFlash('success', 'Votre message a bien été envoyé');
-                $this->addFlash('reopen-modal', true);
                 return $this->redirectToRoute('home');
-            } catch (\Exception $e) {
+            } catch (TransportExceptionInterface $e) {
                 $this->addFlash('error', 'Une erreur est survenue lors de l\'envoi du message');
-                $this->addFlash('reopen-modal', true);
             }
         }
 
-        // Calculate age
-        $birthDate = new \DateTime('2004-01-06');
-        $today = new \DateTime();
-        $age = $today->diff($birthDate)->y;
-
-        $personalInfo = $this->portfolioService->getPersonalInfo();
-        $skills = $this->portfolioService->getSkills();
-        $experiences = $this->portfolioService->getExperiences();
-        $educations = $this->portfolioService->getEducations();
-        $projects = $this->portfolioService->getProjects();
-
         return $this->render('home/index.html.twig', [
-            'personal_info' => $personalInfo,
-            'skills' => $skills,
-            'experiences' => $experiences,
-            'educations' => $educations,
-            'projects' => $projects,
-            'age' => $age,
+            ...$this->portfolioService->getAllData(),
+            'age' => $this->portfolioService->calculateAge(new \DateTimeImmutable('1988-09-20')),
             'form' => $form->createView()
         ]);
     }
