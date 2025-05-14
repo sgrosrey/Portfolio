@@ -1,0 +1,42 @@
+stages:
+  - deploy
+
+variables:
+  # Variables globales (à adapter selon tes besoins)
+  DEPLOY_PATH: "/home/sites/25a/3/3af37bad2e/public_html"  # Chemin de déploiement sur ton serveur (à confirmer avec ton hébergeur)
+  SERVER_USER: "sgrosrey.fr"            # Nom d'utilisateur SSH fourni
+  SERVER_IP: "ssh.gb.stackcp.com"       # Hôte SSH fourni
+
+cache:
+  paths:
+    - vendor/
+
+before_script:
+  - apt-get update -y && apt-get install -y openssh-client rsync git unzip
+  - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  - composer install --no-progress --no-interaction --prefer-dist
+
+deploy_production:
+  stage: deploy
+  only:
+    - main  # Déclenche le déploiement uniquement sur la branche main
+  before_script:
+    # Crée le dossier .ssh et décode la clé privée
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY_BASE64" | base64 -d > ~/.ssh/id_ed25519
+    - chmod 600 ~/.ssh/id_ed25519
+    # Configure l'agent SSH
+    - eval $(ssh-agent -s)
+    - ssh-add ~/.ssh/id_ed25519
+    # Ajoute l'hôte à known_hosts
+    - ssh-keyscan -H "$SERVER_IP" >> ~/.ssh/known_hosts
+  script:
+    # Commandes de déploiement via SSH
+    - ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
+        cd $DEPLOY_PATH &&
+        git pull origin main &&
+        composer install --no-dev --optimize-autoloader &&
+        php bin/console cache:clear --env=prod &&
+        php bin/console doctrine:migrations:migrate --no-interaction
+      "
