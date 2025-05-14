@@ -1,26 +1,19 @@
+image: php:8.2
+
 stages:
   - deploy
 
 variables:
-  DEPLOY_PATH: "/home/sites/25a/3/3af37bad2e/public_html"  # Chemin exact fourni par l'hébergeur
+  DEPLOY_PATH: "/home/sites/25a/3/3af37bad2e/public_html"
   SERVER_USER: "sgrosrey.fr"
   SERVER_IP: "ssh.gb.stackcp.com"
-
-cache:
-  paths:
-    - vendor/
-
-before_script:
-  - apt-get update -y && apt-get install -y openssh-client rsync git unzip
-  - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-  - composer install --no-progress --no-interaction --prefer-dist
 
 deploy_production:
   stage: deploy
   only:
-    - dev  # Déclenche uniquement sur la branche principale
+    - dev   # ou main selon ta branche
   before_script:
-    # Configuration SSH
+    - apt-get update -y && apt-get install -y openssh-client
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - echo "$SSH_PRIVATE_KEY_BASE64" | base64 -d > ~/.ssh/id_ed25519
@@ -29,11 +22,9 @@ deploy_production:
     - ssh-add ~/.ssh/id_ed25519
     - ssh-keyscan -H "$SERVER_IP" >> ~/.ssh/known_hosts
   script:
-    # Commandes de déploiement
     - ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
         cd $DEPLOY_PATH &&
-        git pull origin main &&
+        git pull origin dev &&
         composer install --no-dev --optimize-autoloader &&
-        php bin/console cache:clear --env=prod &&
-        php bin/console doctrine:migrations:migrate --no-interaction
+        php bin/console cache:clear --env=prod
       "
