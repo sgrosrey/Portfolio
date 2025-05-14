@@ -1,4 +1,4 @@
-image: php:8.2
+image: alpine:latest  # Image légère avec SSH
 
 stages:
   - deploy
@@ -16,10 +16,10 @@ deploy_production:
     - apt-get update -y && apt-get install -y openssh-client
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - echo "$SSH_PRIVATE_KEY_BASE64" | base64 -d > ~/.ssh/id_ed25519
-    - chmod 600 ~/.ssh/id_ed25519
+    - echo "$SSH_PRIVATE_KEY" | base64 -d > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
     - eval $(ssh-agent -s)
-    - ssh-add ~/.ssh/id_ed25519
+    - ssh-add ~/.ssh/id_rsa
     - ssh-keyscan -H "$SERVER_IP" >> ~/.ssh/known_hosts
   script:
     - ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
