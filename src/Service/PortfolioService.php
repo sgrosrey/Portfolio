@@ -129,8 +129,8 @@ class PortfolioService
                 ])
             ],
             [
-                'title'        => 'Développeur Full-Stack Freelance',
-                'company'      => 'Indépendant (WIWEB)',
+                'title'        => 'Développeur Full-Stack',
+                'company'      => 'Freelance',
                 'location'     => 'Strasbourg, France',
                 'period'       => '2022 - Présent',
                 'logo'         => 'companies/freelance.png', 
@@ -211,15 +211,15 @@ public function getProjects(): array
             'github'       => null,
             'demo'         => null,
             'technologies' => $this->mapTechs([
-                'Symfony', 'PHP', 'Node.js', 'MySQL', 
-                'TypeScript', 'Leaflet.js', 'API REST', 
+                'Symfony', 'PHP', 'MySQL', 
+                'TypeScript', 'API REST', 
                 'Docker', 'GitLab CI/CD'
             ]),
             'features'     => [
                 'Visualisation cartographique en temps réel',
                 'Intégration avec les API hydrométriques',
                 'Système d\'alertes push multi-canaux',
-                'Tableaux de bord personnalisables pour les préfectures',
+                'Tableaux de bord personnalisables',
                 'Gestion des seuils d\'alerte configurables'
             ]
         ],
@@ -231,7 +231,7 @@ public function getProjects(): array
             'github'       => null,
             'demo'         => 'https://play.google.com/store/apps/details?id=fr.gouv.vigicrues',
             'technologies' => $this->mapTechs([
-                'Ionic', 'Angular', 'TypeScript', 'Capacitor', 
+                'Ionic', 'TypeScript', 'Capacitor', 
                 'Chart.js', 'Geolocation API', 'Push Notifications'
             ]),
             'features'     => [
